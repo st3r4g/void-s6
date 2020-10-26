@@ -1,0 +1,7 @@
+# Clean s6-linux-init-maker directory
+#
+case "${ACTION}" in
+post)
+	rm -r /etc/s6-linux-init
+	;;
+esac

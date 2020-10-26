@@ -1,0 +1,20 @@
+--- skel/rc.init.orig	2020-10-26 09:41:59.116964077 +0100
++++ skel/rc.init	2020-10-26 09:42:23.006965242 +0100
+@@ -24,7 +24,7 @@
+ 
+ ### If your services are managed by s6-rc:
+ ### (replace /run/service with your scandir)
+-# s6-rc-init /run/service
++s6-rc-init /run/service
+ 
+ 
+ ### 2. Starting the wanted set of services
+@@ -35,7 +35,7 @@
+ ### Numeric arguments from 1 to 5 on the kernel command line will
+ ### override the default.
+ 
+-# exec /etc/s6-linux-init/current/scripts/runlevel "$rl"
++exec /etc/s6-linux-init/current/scripts/runlevel "$rl"
+ 
+ 
+ ### If this script is run in a container, then 1. and 2. above do not

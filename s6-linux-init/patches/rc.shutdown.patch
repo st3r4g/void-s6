@@ -1,0 +1,8 @@
+--- skel/rc.shutdown.orig	2020-10-26 09:44:34.054971634 +0100
++++ skel/rc.shutdown	2020-10-26 09:44:47.019972266 +0100
+@@ -27,4 +27,4 @@
+ # exec /sbin/openrc shutdown
+ 
+ ### If your services are managed by s6-rc:
+-# exec s6-rc -v2 -bda change
++exec s6-rc -v2 -bda change
