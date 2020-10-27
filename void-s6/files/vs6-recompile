@@ -1,0 +1,8 @@
+#!/bin/sh -e
+ts=$(date -Is)
+s6-rc-compile /etc/s6-rc/compiled.$ts /etc/s6-rc/source
+s6-rc-update -n /etc/s6-rc/compiled.$ts
+s6-rc-update /etc/s6-rc/compiled.$ts
+echo Transition performed
+rm /etc/s6-rc/compiled
+ln -s compiled.$ts /etc/s6-rc/compiled
