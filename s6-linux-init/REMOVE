@@ -2,6 +2,6 @@
 #
 case "${ACTION}" in
 post)
-	rm -r /etc/s6-linux-init
+	rm -r /etc/s6-linux-init/current
 	;;
 esac

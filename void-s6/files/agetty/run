@@ -1,2 +1,2 @@
 #!/bin/sh
-exec agetty tty7
+exec agetty --noclear tty1

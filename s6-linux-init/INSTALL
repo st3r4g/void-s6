@@ -2,6 +2,6 @@
 #
 case "${ACTION}" in
 post)
-	s6-linux-init-maker -G "/sbin/agetty 38400 tty1" /etc/s6-linux-init/current
+	s6-linux-init-maker -B -G "/sbin/agetty 38400 tty7" /etc/s6-linux-init/current
 	;;
 esac

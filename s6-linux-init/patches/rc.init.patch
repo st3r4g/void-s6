@@ -1,6 +1,15 @@
---- skel/rc.init.orig	2020-10-26 09:41:59.116964077 +0100
-+++ skel/rc.init	2020-10-26 09:42:23.006965242 +0100
-@@ -24,7 +24,7 @@
+--- skel/rc.init.orig	2020-10-30 00:34:22.012381094 +0100
++++ skel/rc.init	2020-10-30 00:36:44.172388028 +0100
+@@ -15,6 +15,8 @@
+ ### This is done only once at boot time.
+ ### Ideally, this phase should just initialize the service manager.
+ 
++/etc/runit/1
++
+ ### If your services are managed by sysv-rc:
+ # /etc/init.d/rcS
+ 
+@@ -24,7 +26,7 @@
  
  ### If your services are managed by s6-rc:
  ### (replace /run/service with your scandir)
@@ -9,7 +18,7 @@
  
  
  ### 2. Starting the wanted set of services
-@@ -35,7 +35,7 @@
+@@ -35,7 +37,7 @@
  ### Numeric arguments from 1 to 5 on the kernel command line will
  ### override the default.
  
