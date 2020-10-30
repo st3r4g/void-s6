@@ -1,7 +1,0 @@
-# Create s6-linux-init-maker directory
-#
-case "${ACTION}" in
-post)
-	s6-linux-init-maker -B -G "/sbin/agetty 38400 tty7" /etc/s6-linux-init/current
-	;;
-esac

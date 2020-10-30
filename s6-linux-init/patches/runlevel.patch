@@ -1,8 +1,0 @@
---- skel/runlevel.orig	2020-10-26 09:43:16.903967871 +0100
-+++ skel/runlevel	2020-10-26 09:44:04.766970205 +0100
-@@ -15,4 +15,4 @@
- # exec /sbin/openrc "$1"
- 
- ### If your services are managed by s6-rc:
--# exec s6-rc -v2 -up change "$1"
-+exec s6-rc -v2 -up change "$1"
