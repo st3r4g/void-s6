@@ -3,7 +3,10 @@ experimental s6 init support for void
 
 ## HOW-TO
 
-* Build and install `s6-linux-init` from [my void-packages branch](https://github.com/st3r4g/void-packages/tree/void-s6)
+* Build and install `s6-linux-init` and `void-s6` from [my void-packages branch](https://github.com/st3r4g/void-packages/tree/void-s6)
+
+**Warning**: the packages contain INSTALL and REMOVE scripts run as root by
+`xbps`, double-check before executing them. Install at own risk.
 
 * Boot with kernel parameter: `init=/etc/s6-linux-init/current/bin/init`
 
