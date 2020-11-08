@@ -1,17 +1,28 @@
 #!/bin/sh
 ts=$(date -Is)
 
-[ -e /etc/s6-rc/compiled ]
+if [ $USER = root ]; then
+	BASEDIR=/etc/s6-rc
+	LIVEDIR=/run/s6-rc
+else
+	BASEDIR=$HOME/s6-rc
+	LIVEDIR=$XDG_RUNTIME_DIR/s6-rc
+fi
+
+[ -e $BASEDIR/compiled ]
 flag=$?
 set -e
 
-s6-rc-compile /etc/s6-rc/compiled.$ts /etc/s6-rc/source
+s6-rc-compile $BASEDIR/compiled.$ts $BASEDIR/void $BASEDIR/custom
 
 if [ $flag -eq 0 ]; then
-	s6-rc-update -n /etc/s6-rc/compiled.$ts
-	s6-rc-update /etc/s6-rc/compiled.$ts
-	echo Transition performed
-	rm /etc/s6-rc/compiled
+	s6-rc-update -n -l $LIVEDIR $BASEDIR/compiled.$ts
+	read -p "Continue (Y/n)? " choice
+	case "$choice" in 
+	  n|N ) exit 0;;
+	esac
+	s6-rc-update -v2 -l $LIVEDIR $BASEDIR/compiled.$ts
+	rm $BASEDIR/compiled
 fi
 
-ln -s compiled.$ts /etc/s6-rc/compiled
+ln -s compiled.$ts $BASEDIR/compiled
