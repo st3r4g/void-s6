@@ -1,5 +1,9 @@
 # void-s6
-experimental s6 init support for void
+experimental s6 init support for Void Linux
+
+*Non-invasive*: doesn't touch the standard runit init and tree.
+Booting into s6 is done via a kernel parameter (can be setup as a bootloader
+entry).
 
 ## HOW-TO
 
@@ -18,7 +22,7 @@ runit.
 * Shutdown with binary: `/etc/s6-linux-init/current/bin/poweroff`
 
 Note: if runit's `poweroff` is run by mistake, it will simply ~~error out with
-no bad consequences~~ (after executing `/etc/runit/1`) apparently do nothing.
+no bad consequences~~ (now that we source `/etc/runit/1`) apparently do nothing.
 
 Upon successful boot, you should see the usual Void messages on `tty1` and a
 getty. In case of problems, an emergency getty is spawned on `tty7`.
