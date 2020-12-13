@@ -8,6 +8,8 @@ experimental s6 init support for void
 **Warning**: the packages contain INSTALL and REMOVE scripts run as root by
 `xbps`, double-check before executing them. Install at own risk.
 
+### Boot and shutdown
+
 * Boot with kernel parameter: `init=/etc/s6-linux-init/current/bin/init`
 
 Note: mistyping this into a nonexisting path still makes the system boot via
@@ -18,10 +20,17 @@ runit.
 Note: if runit's `poweroff` is run by mistake, it will simply ~~error out with
 no bad consequences~~ (after executing `/etc/runit/1`) apparently do nothing.
 
-Upon successfull boot, an early getty is always spawned on `tty7`. Use it to
-log in and shutdown if there are no services.
+Upon successful boot, you should see the usual Void messages on `tty1` and a
+getty. In case of problems, an emergency getty is spawned on `tty7`.
+
+### Service management
+
+To enable a service, add it to `/etc/s6-rc/custom/enabled/contents` and run
+`vs6-recompile`. It will be started next boot. To start it immediately, also
+run `s6-rc change <service>`.
+
+You can check service logs in `/run/uncaught-logs`.
 
 ## TODO
 
-* provide `void-s6` package
 * turn `/etc/runit/1` into a series of oneshots
