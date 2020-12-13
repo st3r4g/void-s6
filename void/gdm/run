@@ -1,0 +1,3 @@
+#!/bin/sh
+[ ! -d /run/gdm ] && mkdir -m0711 -p /run/gdm && chown root:gdm /run/gdm
+exec gdm
