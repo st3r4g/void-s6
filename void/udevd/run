@@ -1,0 +1,4 @@
+#!/bin/sh
+#stage 1 leaves a udevd process up... why?
+udevadm control --exit
+exec udevd
