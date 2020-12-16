@@ -1,0 +1,2 @@
+#!/bin/sh
+exec dbus-send --print-reply --reply-timeout=1000 --system --dest=org.freedesktop.login1 / org.freedesktop.DBus.Peer.Ping >/dev/null 2>&1

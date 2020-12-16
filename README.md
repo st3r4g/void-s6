@@ -35,6 +35,10 @@ run `s6-rc change <service>`.
 
 You can check service logs in `/run/uncaught-logs`.
 
+### Notes
+
+* To prevent `elogind` dbus activation, remove `/usr/share/dbus-1/system-services/org.freedesktop.login1.service`
+
 ## TODO
 
 * turn `/etc/runit/1` into a series of oneshots
